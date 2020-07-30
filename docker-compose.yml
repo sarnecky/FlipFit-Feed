@@ -3,11 +3,12 @@ services:
   flip_fit_posts:
     depends_on:
       - mongo
+      - rabbitmq
     build:
       context: .
       dockerfile: flip-fit-posts/Dockerfile
     ports:
-      - "5001:3000"
+      - 5001:3000
     volumes: 
       - .:/usr/src/app
       - /usr/src/app/node_modules
@@ -18,6 +19,13 @@ services:
     volumes:
       - mongodata:/data/db
     ports:
-      - "27017:27017"
+      - 27017:27017
+    
+  rabbitmq:
+    image: rabbitmq:3.8
+    ports:
+      - 15672:15672
+      - 5672:5672
+
 volumes:
   mongodata:
