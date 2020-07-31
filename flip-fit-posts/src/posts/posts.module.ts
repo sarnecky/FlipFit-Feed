@@ -1,9 +1,9 @@
 import { MongooseModule } from "@nestjs/mongoose";
-import { PostsSchema } from "./schemas/post.schema";
+import { PostsSchema } from "./schemas/posts.schema";
 import { Module } from "@nestjs/common";
 import { PostsController } from "./controllers/posts.controller";
 import { FetchCoursesRepository } from "./repository/fetchCourses.repository";
-import { CoursesRepository } from "./repository/coursesRepository.repository";
+import { CoursesRepository } from "./repository/courses.repository";
 
 @Module({
     imports: [

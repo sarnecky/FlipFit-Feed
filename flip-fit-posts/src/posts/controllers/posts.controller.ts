@@ -1,6 +1,6 @@
 import { Controller, Get, Post } from '@nestjs/common';
 import { PostModel } from '../contracts/post.model';
-import { CoursesRepository } from '../repository/coursesRepository.repository';
+import { CoursesRepository } from '../repository/courses.repository';
 import { FetchCoursesRepository } from '../repository/fetchCourses.repository';
 import { PostEntity } from '../models/post.entity';
 
