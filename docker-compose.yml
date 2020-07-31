@@ -1,5 +1,18 @@
 version: "3.3"
-services: 
+services:
+  flip_fit_users:
+    depends_on:
+      - mongo
+      - rabbitmq
+    build:
+      context: .
+      dockerfile: flip-fit-users/Dockerfile
+    ports:
+      - 5002:3002
+    volumes: 
+      - .:/usr/src/app
+      - /usr/src/app/node_modules 
+
   flip_fit_posts:
     depends_on:
       - mongo
@@ -8,7 +21,7 @@ services:
       context: .
       dockerfile: flip-fit-posts/Dockerfile
     ports:
-      - 5001:3000
+      - 5001:3001
     volumes: 
       - .:/usr/src/app
       - /usr/src/app/node_modules
